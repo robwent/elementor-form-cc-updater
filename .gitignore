@@ -1,0 +1,11 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Dependencies / build (not used yet, but safe defaults)
+/vendor/
+/node_modules/
