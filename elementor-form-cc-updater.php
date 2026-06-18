@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Elementor Form Cc Updater
- * Plugin URI:        https://github.com/robertwent/elementor-form-cc-updater
+ * Plugin URI:        https://github.com/robwent/elementor-form-cc-updater
  * Description:       Sets a uniform Cc on every Elementor form's email action across the whole site. The Cc address list is editable and saved, so existing forms can be overwritten to match. Run from Tools → Form Cc Updater, or via WP-CLI (wp form-cc).
  * Version:           2.0.0
  * Author:            Robert Went
