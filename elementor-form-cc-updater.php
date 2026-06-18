@@ -241,8 +241,8 @@ function efcc_admin_page() {
 /* -------------------------------------------------------------------------
  * WP-CLI command: wp form-cc [--cc="a@b.com, c@d.com"] [--dry-run]
  *   Without --cc it uses the saved value. With --cc it saves then uses it.
- *   e.g. on Flywheel over SSH:
- *     wp form-cc --cc="s.curti@acpsurveyors.com, andrea@acpsurveyors.com" --dry-run
+ *   e.g.
+ *     wp form-cc --cc="one@example.com, two@example.com" --dry-run
  *     wp form-cc
  * ---------------------------------------------------------------------- */
 

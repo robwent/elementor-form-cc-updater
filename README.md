@@ -1,8 +1,8 @@
 # Elementor Form Cc Updater
 
-A small WordPress plugin that sets a **uniform Cc** on the email action of **every Elementor Pro form** across your whole site — in one click (or one WP-CLI command).
+A small WordPress plugin that sets a **uniform Cc** on the email action of **every Elementor Pro form** across your whole site - in one click (or one WP-CLI command).
 
-Elementor stores each form's settings inside the page's `_elementor_data` JSON, scattered across many posts. If forms have been built over time, their Cc fields drift out of sync — some have addresses, some don't, and the ones that do aren't consistent. This plugin finds every form on the site and forces the Cc to a single value you control.
+Elementor stores each form's settings inside the page's `_elementor_data` JSON, scattered across many posts. If forms have been built over time, their Cc fields drift out of sync - some have addresses, some don't, and the ones that do aren't consistent. This plugin finds every form on the site and forces the Cc to a single value you control.
 
 ## Why
 
@@ -12,13 +12,13 @@ Elementor stores each form's settings inside the page's `_elementor_data` JSON, 
 
 ## Features
 
-- **Finds every form automatically** — recursively walks each page's element tree, including forms nested in inner sections, containers, columns, and popups, and handles **multiple forms per page**.
-- **Editable, saved address list** — set the Cc addresses on the admin page; the value is stored so you can see and reuse it later.
-- **Dry-run preview** — see exactly how many forms would change before writing anything.
-- **Idempotent** — safe to run repeatedly; forms already matching are skipped.
-- **Slash-safe writes** — writes `_elementor_data` exactly the way Elementor does (`wp_json_encode` + `wp_slash`), so escaped slashes/quotes round-trip correctly.
-- **WP-CLI command** — ideal for running on managed hosts (e.g. Flywheel, WP Engine) over SSH.
-- **No autoloaded options, no front-end footprint** — the only stored option is the Cc list, and it is not autoloaded.
+- **Finds every form automatically** - recursively walks each page's element tree, including forms nested in inner sections, containers, columns, and popups, and handles **multiple forms per page**.
+- **Editable, saved address list** - set the Cc addresses on the admin page; the value is stored so you can see and reuse it later.
+- **Dry-run preview** - see exactly how many forms would change before writing anything.
+- **Idempotent** - safe to run repeatedly; forms already matching are skipped.
+- **Slash-safe writes** - writes `_elementor_data` exactly the way Elementor does (`wp_json_encode` + `wp_slash`), so escaped slashes/quotes round-trip correctly.
+- **WP-CLI command** - run it from the command line on any site with shell/WP-CLI access.
+- **No autoloaded options, no front-end footprint** - the only stored option is the Cc list, and it is not autoloaded.
 - Mirrors the Cc onto a form's **second email action** too, but only when that form actually has `email2` enabled.
 
 ## Requirements
@@ -74,7 +74,7 @@ Success: Cc applied to all forms.
 
 1. Runs a single SQL query for postmeta rows where `meta_key = '_elementor_data'` and the value contains `"widgetType":"form"`, so only pages that actually contain a form are loaded.
 2. Decodes each blob and recursively walks the element tree, finding every `form` widget.
-3. Compares each form's `email_to_cc` to your target value — leaving matches untouched and updating the rest.
+3. Compares each form's `email_to_cc` to your target value - leaving matches untouched and updating the rest.
 4. On apply, re-encodes the modified page with `wp_json_encode()`, runs it through `wp_slash()`, writes it back with `update_metadata()`, and clears Elementor's CSS/file cache.
 
 Because preview only reads and compares in memory, it's effectively instant even on sites with hundreds of forms.
